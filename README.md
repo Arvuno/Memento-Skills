@@ -1,3 +1,19 @@
+
+
+## Quick Start
+
+Install with:
+```bash
+pip install memento-skills
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/Memento-Teams/memento-skills.git
+cd memento-skills
+python setup.py install
+```
+
 <h1 align="center">Memento-Skills: Let Agents Design Agents</h1>
 
 <h3 align="center"><b>Deploy an agent. Let it learn, rewrite, and evolve its own skills.</b></h3>
@@ -354,99 +370,6 @@ Download the pre-built desktop app — no Python or terminal needed. Just unzip 
 | **Windows** (x64) | [memento-s-win-x64.zip](https://delta-bucket-public.yangtzeailab.com/memento-s/Memento-S-win-x64-0.3.1.zip) |
 
 > After unzipping, open the app and fill in your LLM API key in the settings page. That's it — you're ready to go.
-
-## Quick Start (Developer)
-
-```bash
-git clone https://github.com/Memento-Teams/Memento-Skills.git
-cd Memento-Skills
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
-```
-
-On first launch, `~/memento_s/config.json` is created automatically. Fill in your model profile, then start the app:
-
-```bash
-memento doctor    # Check environment, dependencies, and config validity
-memento agent     # Start an interactive agent session in the terminal
-memento-gui       # Launch the desktop GUI with chat interface
-```
-
-| Command | Description |
-| --- | --- |
-| `memento doctor` | Runs a diagnostic check on your environment — verifies Python version, installed dependencies, config file validity, and API key availability. Run this first to make sure everything is set up correctly. |
-| `memento agent` | Starts an interactive agent session in the terminal. The agent can receive tasks, route to skills, execute them in a local sandbox, and reflect on results. Add `-m "..."` for single-message mode. |
-| `memento-gui` | Launches the desktop GUI built with Flet, providing a visual chat interface with session management, workspace browser, slash commands, and real-time skill execution feedback. |
-
-<details>
-<summary><b>Configuration system (v2)</b></summary>
-
-Memento-Skills uses a three-layer configuration architecture (introduced in v0.2.0):
-
-- **System Config** (`system_config.json`) — read-only defaults shipped with the codebase.
-- **User Config** (`~/memento_s/config.json`) — persistent user customisation, read-write.
-- **Runtime Config** — merged at startup (System + User), used at runtime.
-
-When the config template updates across versions, the system automatically detects and merges new fields while preserving existing user values. Fields marked with `x-managed-by: user` are protected from auto-migration.
-
-```jsonc
-{
-  "llm": {
-    "active_profile": "default",
-    "profiles": {
-      "default": {
-        "model": "openai/gpt-4o",
-        "api_key": "your-api-key",
-        "base_url": "https://api.openai.com/v1",
-        "max_tokens": 8192,
-        "temperature": 0.7,
-        "timeout": 120
-      }
-    }
-  },
-  "env": {
-    "TAVILY_API_KEY": "your-search-api-key"
-  }
-}
-```
-
-The `model` field uses the `provider/model` format, for example `anthropic/claude-3.5-sonnet`, `openai/gpt-4o`, or `ollama/llama3`.
-`TAVILY_API_KEY` is only required for web search.
-
-The same profile system is also convenient for mainstream open-source model ecosystems, including **Kimi / Moonshot**, **MiniMax**, **GLM / Zhipu**, and other OpenAI-compatible endpoints.
-
-</details>
-
-<details>
-<summary><b>Common commands</b></summary>
-
-```bash
-memento agent             # Interactive agent session
-memento agent -m "..."    # Single-message mode
-memento doctor            # Environment and config checks
-memento verify            # Skill download / audit / execution validation
-memento feishu            # Feishu IM bridge
-memento wechat            # WeChat personal integration (iLink API)
-memento im_status         # IM gateway status
-memento-gui               # Desktop GUI
-```
-
-</details>
-
-<details>
-<summary><b>Supported LLM providers</b></summary>
-
-| Provider | Model example | base_url |
-| --- | --- | --- |
-| Anthropic Claude | `anthropic/claude-3.5-sonnet` | default |
-| OpenAI | `openai/gpt-4o` | default |
-| OpenRouter | `anthropic/claude-3.5-sonnet` | `https://openrouter.ai/api/v1` |
-| Ollama | `ollama/llama3` | `http://localhost:11434` |
-| Open-source LLM ecosystems | Kimi, MiniMax, GLM, and similar endpoints | configurable via profile + `base_url` |
-| Self-hosted (vLLM / SGLang) | `openai/your-model` | custom endpoint |
-
-</details>
 
 ## Built-in Skills
 
