@@ -357,6 +357,8 @@ Download the pre-built desktop app — no Python or terminal needed. Just unzip 
 
 ## Quick Start (Developer)
 
+Memento-Skills requires **Python 3.12 or later**.
+
 ```bash
 git clone https://github.com/Memento-Teams/Memento-Skills.git
 cd Memento-Skills
