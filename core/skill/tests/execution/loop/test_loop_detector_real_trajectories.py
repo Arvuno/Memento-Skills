@@ -243,7 +243,7 @@ class TestReActStateRealStallPatterns:
         # The stall detection happens in SkillAgent, not directly on state
         # But we can test the state field behavior
         state.no_progress_count = 0
-        # Manually simulate stall detection
+        # Mannually simulate stall detection
         if not state.created_files and not state.updated_files:
             state.no_progress_count += 1
         assert state.no_progress_count == 1

@@ -639,7 +639,7 @@ class WeixinClient:
 
     def save_sync_state(self) -> bool:
         """
-        Manually save the current sync cursor to disk.
+        Mannually save the current sync cursor to disk.
 
         Returns:
             True if cursor was saved successfully, False otherwise

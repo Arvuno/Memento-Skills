@@ -87,14 +87,14 @@ It performs five checks:
 
 2. **Broken cross-sheet reference detection**: If the cell has an `<f>` element, the script extracts all sheet names referenced in the formula (both `SheetName!` and `'Sheet Name'!` syntax). Each name is compared against the list of sheets in `workbook.xml`. A mismatch is a broken reference.
 
-3. **Unknown named-range detection (heuristic)**: Identifiers in formulas that are not function names, not cell references, and not found in `workbook.xml`'s `<definedNames>` are flagged as `unknown_name_ref` warnings. This is a heuristic — false positives are possible; always verify manually.
+3. **Unknown named-range detection (heuristic)**: Identifiers in formulas that are not function names, not cell references, and not found in `workbook.xml`'s `<definedNames>` are flagged as `unknown_name_ref` warnings. This is a heuristic — false positives are possible; always verify mannually.
 
 4. **Shared formula integrity**: Shared formula consumer cells (those with only `<f t="shared" si="N"/>`) are skipped for formula counting and cross-ref checks because they inherit the primary cell's formula. Only the primary cell (with `ref="..."` attribute and formula text) is checked and counted.
 
 5. **Malformed error cells**: Cells with `t="e"` but no `<v>` child element are flagged as structural XML issues.
 
 Hard errors (exit code 1): `error_value`, `broken_sheet_ref`, `malformed_error_cell`, `file_error`
-Soft warnings (exit code 0): `unknown_name_ref` — must be verified manually but do not block delivery alone
+Soft warnings (exit code 0): `unknown_name_ref` — must be verified mannually but do not block delivery alone
 
 #### Reading formula_check.py human-readable output
 
@@ -125,7 +125,7 @@ Errors found          : 4
          Formula: Q5!D15
          Valid sheets: ['Assumptions', 'Q1', 'Q2', 'Q3', 'Q4', 'Summary']
   [FAIL] [Q1!F8] contains #DIV/0!
-  [WARN] [Q2!B10] uses unknown name 'GrowthAssumptions' (heuristic — verify manually)
+  [WARN] [Q2!B10] uses unknown name 'GrowthAssumptions' (heuristic — verify mannually)
          Formula: SUM(GrowthAssumptions)
          Defined names: ['RevenueRange', 'CostRange']
 
@@ -137,7 +137,7 @@ Interpretation of each line:
 - `[FAIL] [Summary!C12] contains #REF! (formula: Q1!A0/Q1!A1)` — The cell has `t="e"` and `<v>#REF!</v>`. The formula references row 0, which does not exist in Excel's 1-based system. This is an off-by-one error in a generated reference.
 - `[FAIL] [Summary!D15] references missing sheet 'Q5'` — The formula contains `Q5!D15`, but no sheet named `Q5` exists in the workbook. The valid sheet list is provided for comparison.
 - `[FAIL] [Q1!F8] contains #DIV/0!` — This cell's `<v>` is already an error value (the file was previously recalculated). The formula divided by zero.
-- `[WARN] [Q2!B10] uses unknown name 'GrowthAssumptions'` — The identifier `GrowthAssumptions` appears in the formula but is not in `<definedNames>`. This may be a typo or a name that was accidentally omitted. It is a heuristic warning — verify manually. The warning alone does not block delivery.
+- `[WARN] [Q2!B10] uses unknown name 'GrowthAssumptions'` — The identifier `GrowthAssumptions` appears in the formula but is not in `<definedNames>`. This may be a typo or a name that was accidentally omitted. It is a heuristic warning — verify mannually. The warning alone does not block delivery.
 
 #### Reading formula_check.py JSON output
 
@@ -178,7 +178,7 @@ Interpretation of each line:
       "formula": "SUM(GrowthAssumptions)",
       "unknown_name": "GrowthAssumptions",
       "defined_names": ["RevenueRange", "CostRange"],
-      "note": "Heuristic check — verify manually if this is a false positive"
+      "note": "Heuristic check — verify mannually if this is a false positive"
     }
   ]
 }

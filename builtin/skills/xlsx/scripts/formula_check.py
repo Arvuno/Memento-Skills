@@ -230,7 +230,7 @@ def check(xlsx_path: str, sheet_filter: str | None = None) -> dict:
                                     "formula": formula,
                                     "unknown_name": name_ref,
                                     "defined_names": sorted(defined_names),
-                                    "note": "Heuristic check — verify manually if this is a false positive",
+                                    "note": "Heuristic check — verify mannually if this is a false positive",
                                 }
                             )
                             results["error_count"] += 1
@@ -318,7 +318,7 @@ def main() -> None:
                 print(f"         Formula: {e['formula']}")
                 print(f"         Valid sheets: {e.get('valid_sheets', [])}")
             elif e["type"] == "unknown_name_ref":
-                print(f"  [WARN] [{e['sheet']}!{e['cell']}] uses unknown name '{e['unknown_name']}' (heuristic — verify manually)")
+                print(f"  [WARN] [{e['sheet']}!{e['cell']}] uses unknown name '{e['unknown_name']}' (heuristic — verify mannually)")
                 print(f"         Formula: {e['formula']}")
                 print(f"         Defined names: {e.get('defined_names', [])}")
             elif e["type"] == "malformed_error_cell":

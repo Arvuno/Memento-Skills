@@ -28,7 +28,7 @@ After running, repack with xlsx_pack.py and re-validate with formula_check.py.
 
 Limitations:
   - Named ranges in workbook.xml <definedNames> are NOT updated automatically.
-    Review them manually after running this script.
+    Review them mannually after running this script.
   - Structured table references (Table[@Column]) are NOT updated.
   - External workbook links in xl/externalLinks/ are NOT updated.
 """
@@ -383,7 +383,7 @@ def main() -> None:
     print()
     print(f"Total changes: {total_changes}")
     print()
-    print("IMPORTANT: Review named ranges in xl/workbook.xml <definedNames> manually.")
+    print("IMPORTANT: Review named ranges in xl/workbook.xml <definedNames> mannually.")
     print("           Structured table references (Table[@Col]) are NOT updated.")
     print()
     print("Next steps:")
