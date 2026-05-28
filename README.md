@@ -609,3 +609,7 @@ Memento-Skills 的核心不是"怎么让 assistant 跑起来"，而是"怎么让
 ## Licence
 
 MIT
+
+## Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request or open an issue for bug reports and feature suggestions.
