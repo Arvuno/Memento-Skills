@@ -106,7 +106,7 @@ Slide order is in `ppt/presentation.xml` → `<p:sldIdLst>`.
 
 **Delete**: Remove `<p:sldId>`, then run `clean.py`.
 
-**Add**: Use `add_slide.py`. Never manually copy slide files—the script handles notes references, Content_Types.xml, and relationship IDs that manual copying misses.
+**Add**: Use `add_slide.py`. Never mannually copy slide files—the script handles notes references, Content_Types.xml, and relationship IDs that manual copying misses.
 
 ---
 

@@ -35,7 +35,7 @@ class SessionGuard:
         # When session expires (errcode -14), pause the account
         guard.pause("account_123")
 
-        # Manually resume if needed
+        # Mannually resume if needed
         guard.resume("account_123")
     """
 
@@ -95,7 +95,7 @@ class SessionGuard:
 
     async def resume(self, account_id: str) -> bool:
         """
-        Manually resume a paused account.
+        Mannually resume a paused account.
 
         Args:
             account_id: The account identifier to resume
@@ -106,7 +106,7 @@ class SessionGuard:
         async with self._lock:
             if account_id in self._paused_accounts:
                 del self._paused_accounts[account_id]
-                logger.info(f"Manually resumed account {account_id}")
+                logger.info(f"Mannually resumed account {account_id}")
                 return True
             return False
 

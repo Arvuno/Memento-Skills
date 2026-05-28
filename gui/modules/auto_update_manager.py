@@ -1123,7 +1123,7 @@ class AutoUpdateManager:
         return bool(self._current_update and self._current_update.force_update)
 
     async def manual_check_for_update(self) -> UpdateInfo | None:
-        """Manually triggered update check (non-silent)."""
+        """Mannually triggered update check (non-silent)."""
         self._is_auto_check = False
         logger.info("[AutoUpdate] Manual check triggered")
         return await self.check_for_update()

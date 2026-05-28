@@ -504,7 +504,7 @@ Inserting a row at position N shifts all rows from N downward. Every reference t
 | `<dimension ref="...">` | Expand to include new extent | `A1:D20` → `A1:D21` |
 | `xl/tables/tableN.xml` `ref` attribute | Expand table boundary | `A1:D20` → `A1:D21` |
 
-**Do not attempt row insertion manually in large or formula-heavy files.** Use the dedicated shift script instead:
+**Do not attempt row insertion mannually in large or formula-heavy files.** Use the dedicated shift script instead:
 
 ```bash
 # Insert 1 row at row 5: all rows 5 and below shift down by 1
@@ -522,7 +522,7 @@ python3 SKILL_DIR/scripts/xlsx_pack.py /tmp/xlsx_work/ output.xlsx
 python3 SKILL_DIR/scripts/formula_check.py output.xlsx
 ```
 
-**What the script does NOT update (review manually):**
+**What the script does NOT update (review mannually):**
 - Named ranges in `xl/workbook.xml` `<definedNames>` — check and update if they reference shifted rows.
 - Structured table references (`Table[@Column]`) inside formulas.
 - External workbook links in `xl/externalLinks/`.

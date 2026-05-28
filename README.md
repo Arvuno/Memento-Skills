@@ -560,7 +560,7 @@ Memento-Skills/
 | Import errors | Make sure the virtual environment is active and rerun `pip install -e .`. |
 | Web skill fails | Check whether `TAVILY_API_KEY` is configured and whether network access is available. |
 | IM gateway connection fails | Check the IM platform credentials in `config.json`. |
-| Config migration fails | Back up then manually merge `~/memento_s/config.json` with the template. |
+| Config migration fails | Back up then mannually merge `~/memento_s/config.json` with the template. |
 
 ## Memento Ecosystem
 

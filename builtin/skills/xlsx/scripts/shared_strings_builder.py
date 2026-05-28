@@ -22,7 +22,7 @@ Notes:
     - Strings are de-duplicated: identical strings appear only once in the table.
     - The 'count' attribute equals the number of unique strings (appropriate for new files
       where each string is used in exactly one cell). If a string appears in multiple cells,
-      manually increment 'count' by the number of extra references.
+      mannually increment 'count' by the number of extra references.
     - Special characters (&, <, >) are automatically XML-escaped.
     - Leading/trailing spaces are preserved with xml:space="preserve".
 """

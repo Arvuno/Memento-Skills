@@ -456,7 +456,7 @@ After appending, cross-sheet reference currency cells use `s="13"`.
 python3 SKILL_DIR/scripts/xlsx_unpack.py input.xlsx /tmp/xlsx_fmt/
 ```
 
-If the script is unavailable, unpack manually:
+If the script is unavailable, unpack mannually:
 ```bash
 mkdir -p /tmp/xlsx_fmt && cp input.xlsx /tmp/xlsx_fmt/input.xlsx
 cd /tmp/xlsx_fmt && unzip input.xlsx -d unpacked/
@@ -513,7 +513,7 @@ For consecutive rows of the same type, row-level default styles can be used to r
 ### 6.7 Step 6 — Verification
 
 ```bash
-# XML validity verification is handled automatically by xlsx_pack.py, no need to manually run xmllint
+# XML validity verification is handled automatically by xlsx_pack.py, no need to mannually run xmllint
 # The pack script validates styles.xml and sheet XML legality before packaging; it aborts and reports on errors
 
 # Style audit (optional, audit the entire unpacked directory after formatting is complete)
@@ -541,7 +541,7 @@ grep 'cellXfs count' /tmp/xlsx_fmt/unpacked/xl/styles.xml
 python3 SKILL_DIR/scripts/xlsx_pack.py /tmp/xlsx_fmt/unpacked/ output.xlsx
 ```
 
-If the script is unavailable, pack manually:
+If the script is unavailable, pack mannually:
 ```bash
 cd /tmp/xlsx_fmt/unpacked/
 zip -r ../output.xlsx . -x "*.DS_Store"
@@ -764,5 +764,5 @@ Before outputting the final file, confirm each item:
 - [ ] Growth rates and percentages are stored as decimals (0.08 = 8%), format is `0.0%`
 - [ ] All cross-sheet reference cells use green font (style index 3 or an appended green + number format combination)
 - [ ] Assumptions block and model block are clearly separated (different sheets or separated by empty rows within the same sheet)
-- [ ] Summary rows use `SUM()` formulas, not manually hard-coded totals
+- [ ] Summary rows use `SUM()` formulas, not mannually hard-coded totals
 - [ ] Balance verification: summary rows = sum of their respective line items (a check row can be added at the end of the model to verify)

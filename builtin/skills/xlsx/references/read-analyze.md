@@ -79,7 +79,7 @@ If the user specifies an output file path, write results to it (highest priority
 | Pitfall | Cause | Fix |
 |---------|-------|-----|
 | Formula cells read as NaN | `<v>` cache empty in freshly generated files | Inform user; suggest opening in Excel and re-saving; or use `libreoffice_recalc.py` |
-| CSV encoding errors | Chinese Windows exports use GBK | `xlsx_reader.py` auto-tries multiple encodings; manually specify if all fail |
+| CSV encoding errors | Chinese Windows exports use GBK | `xlsx_reader.py` auto-tries multiple encodings; mannually specify if all fail |
 | Mixed types in column | Column has both numbers and text (e.g., "N/A") | `pd.to_numeric(df['Col'], errors='coerce')` — report unconvertible rows |
 | Year shows as 2,024 | Thousands separator format applied to year | `df['Year'].astype(int).astype(str)` |
 | Multi-level headers | Two-row header merged | `pd.read_excel(path, header=[0, 1])`, then flatten with `' - '.join()` |
