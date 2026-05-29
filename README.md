@@ -612,3 +612,6 @@ MIT
 
 ## Contributing
 PRs welcome!
+
+<!-- Contributor: Arvuno - documentation update -->
+
